@@ -3,7 +3,7 @@ info:
   version: '1.0'
   title: 06-Jobs-Api
   contact: {}
-host: jobs-api-06.onrender.com
+host: jobs-api-06eq3.onrender.com
 basePath: /api/v1
 securityDefinitions: {}
 schemes:
