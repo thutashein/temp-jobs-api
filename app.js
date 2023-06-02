@@ -1,5 +1,10 @@
 require('dotenv').config();
 require('express-async-errors');
+
+const swaggerUI = require("swagger-ui-express");
+const YAML = require("yamljs");
+const swaggerDocument =  YAML.load("./swagger.yaml");
+
 const express = require('express');
 const app = express();
 
@@ -23,6 +28,8 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 const authenticatedUser = require("./middleware/authentication");
 app.use(express.json());
 // extra packages
+
+
 
 
 app.set('trust proxy', 1);

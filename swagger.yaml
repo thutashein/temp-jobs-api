@@ -1,0 +1,225 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: 06-Jobs-Api
+  contact: {}
+host: jobs-api-06.onrender.com
+basePath: /api/v1
+securityDefinitions: {}
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /auth/register:
+    post:
+      summary: Register
+      tags:
+        - Auth
+      operationId: Register
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/RegisterRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security: []
+
+  /auth/login:
+    post:
+      summary: Login
+      tags:
+        - Auth
+      operationId: Login
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/LoginRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security: []
+
+  /jobs:
+    post:
+      summary: CREATE  JOB
+      tags:
+        - Jobs
+      operationId: CREATEJOB
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/CREATEJOBREQUEST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security: []
+
+    get:
+      summary: Get All Jobs
+      tags:
+        - Jobs
+      operationId: GetAllJobs
+      deprecated: false
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security: []
+
+  /jobs/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The job ID
+        type: string
+
+    get:
+      summary: Get Single Job
+      tags:
+        - Jobs
+      operationId: GetSingleJob
+      deprecated: false
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security: []
+
+    patch:
+      summary: Update Job
+      tags:
+        - Jobs
+      operationId: UpdateJob
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/UpdateJobRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security: []
+
+    delete:
+      summary: Delete Job
+      tags:
+        - Jobs
+      operationId: DeleteJob
+      deprecated: false
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security: []
+
+definitions:
+  RegisterRequest:
+    title: RegisterRequest
+    example:
+      name: hla
+      email: hla@gmail.com
+      password: secret
+    type: object
+    properties:
+      name:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+    required:
+      - name
+      - email
+      - password
+
+  LoginRequest:
+    title: LoginRequest
+    example:
+      email: thuta@gmail.com
+      password: secret
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+      - email
+      - password
+
+  CREATEJOBREQUEST:
+    title: CREATEJOBREQUEST
+    example:
+      company: Tesing Company
+      position: Front-end Developer
+    type: object
+    properties:
+      company:
+        type: string
+      position:
+        type: string
+    required:
+      - company
+      - position
+
+  UpdateJobRequest:
+    title: UpdateJobRequest
+    example:
+      company: Update! Microsoft
+    type: object
+    properties:
+      company:
+        type: string
+    required:
+      - company
+
+security: []
+
+tags:
+  - name: Misc
+    description: ''
+  - name: Auth
+    description: ''
+  - name: Jobs
+    description: ''
